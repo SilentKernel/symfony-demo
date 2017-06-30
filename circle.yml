@@ -6,6 +6,15 @@ machine:
 
 test:
   override:
+    - mkdir var/fails
+    - wget http://selenium-release.storage.googleapis.com/2.53/selenium-server-standalone-2.53.0.jar
+    - 'java -jar selenium-server-standalone-2.53.0.jar > /dev/null 2>&1':
+              background: true
+    - 'php bin/console --env=test server:run -r --no-debug > server.log 2>&1':
+          background: true
+    - "Xvfb :99 -ac 2>/dev/null":
+          background: true
+    - sleep 3 # give xvfb some time to start
     - vendor/bin/phpunit
     - vendor/bin/behat
 
