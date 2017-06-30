@@ -7,6 +7,10 @@ default:
                 - Knp\FriendlyContexts\Context\EntityContext
                 - Features\Context\FeatureContext
     extensions:
+        Lakion\Behat\MinkDebugExtension:
+            directory: var/fails
+            screenshot: true
+            clean_start: true
         Knp\FriendlyContexts\Extension: ~
         Behat\Symfony2Extension: ~
         Behat\MinkExtension:

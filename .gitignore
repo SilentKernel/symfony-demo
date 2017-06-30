@@ -3,6 +3,7 @@
 /node_modules/
 /phpunit.xml
 /.php_cs
+!/var/fails/.gitkeep
 /var/*
 !/var/cache
 /var/cache/*
